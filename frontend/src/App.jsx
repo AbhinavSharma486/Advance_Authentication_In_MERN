@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import FloatingShape from './components/FloatingShape.jsx';
 import SignUpPage from "./pages/SignupPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
+import EmailVerificationPage from './pages/EmailVerificationPage.jsx';
 
 function App() {
 
@@ -16,13 +17,13 @@ function App() {
         <Route path='/' element={"Home"} />
         <Route path='/signup' element={<SignUpPage />} />
         <Route path='/login' element={<LoginPage />} />
-        <Route path='/verify-email' />
         <Route path='/forgot-password' />
         <Route path='/reset-password' />
+        <Route path="/verify-email" element={<EmailVerificationPage />} />
         <Route />
       </Routes>
     </div>
   );
 }
 
-export default App;
+export default App;;;;
