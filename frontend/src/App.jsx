@@ -1,5 +1,7 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
+import { Toaster } from 'react-hot-toast';
+
 import FloatingShape from './components/FloatingShape.jsx';
 import SignUpPage from "./pages/SignupPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
@@ -22,6 +24,7 @@ function App() {
         <Route path="/verify-email" element={<EmailVerificationPage />} />
         <Route />
       </Routes>
+      <Toaster />
     </div>
   );
 }
