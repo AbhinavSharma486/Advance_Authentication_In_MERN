@@ -10,6 +10,8 @@ import EmailVerificationPage from './pages/EmailVerificationPage.jsx';
 import { useAuthStore } from './store/authStore.js';
 import DashboardPage from './pages/DashboardPage.jsx';
 import LoadingSpinner from './components/LoadingSpinner.jsx';
+import ForgetPasswordPage from './pages/ForgetPasswordPage.jsx';
+import ResetPasswordPage from './pages/ResetPasswordPage.jsx';
 
 // protect route that require authentication
 const ProtectedRoute = ({ children }) => {
@@ -40,7 +42,7 @@ const RedirectAuthenticatedUser = ({ children }) => {
 
 function App() {
 
-  const { isCheckingAuth, checkAuth, isAuthenticated, user } = useAuthStore();
+  const { isCheckingAuth, checkAuth } = useAuthStore();
 
   useEffect(() => {
     checkAuth();
@@ -81,8 +83,22 @@ function App() {
             </RedirectAuthenticatedUser>
           }
         />
-        <Route path='/forgot-password' />
-        <Route path='/reset-password' />
+        <Route
+          path='/forget-password'
+          element={
+            <RedirectAuthenticatedUser>
+              <ForgetPasswordPage />
+            </RedirectAuthenticatedUser>
+          }
+        />
+        <Route
+          path='/reset-password/:token'
+          element={
+            <RedirectAuthenticatedUser>
+              <ResetPasswordPage />
+            </RedirectAuthenticatedUser>
+          }
+        />
         <Route path="/verify-email" element={<EmailVerificationPage />} />
         <Route />
       </Routes>
