@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import EmailVerificationPage from './pages/EmailVerificationPage.jsx';
 import { useAuthStore } from './store/authStore.js';
 import DashboardPage from './pages/DashboardPage.jsx';
+import LoadingSpinner from './components/LoadingSpinner.jsx';
 
 // protect route that require authentication
 const ProtectedRoute = ({ children }) => {
@@ -45,8 +46,7 @@ function App() {
     checkAuth();
   }, [checkAuth]);
 
-  console.log("isAuthenticated", isAuthenticated);
-  console.log("user", user);
+  if (isCheckingAuth) return <LoadingSpinner className='text-sm animate-spin' />;
 
 
   return (
