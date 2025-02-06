@@ -4,13 +4,15 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon backend/src/index.js"
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "advance-authentication-in-mern": "file:..",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
